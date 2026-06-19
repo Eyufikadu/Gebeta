@@ -1,0 +1,283 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* BODY */
+  body {
+    background: linear-gradient(135deg, #e9eef5, #f5f6fa);
+    color: #222;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* TOP BANNER */
+  .promotion-banner {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .promotion-banner a {
+    color: #00ff99;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* MAIN CARD */
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+  
+    /* gradient texture background */
+    background:
+      radial-gradient(circle at 15% 10%, rgba(0, 200, 83, 0.10), transparent 45%),
+      radial-gradient(circle at 85% 25%, rgba(0, 153, 255, 0.10), transparent 45%),
+      radial-gradient(circle at 50% 90%, rgba(255, 200, 0, 0.05), transparent 50%),
+      linear-gradient(135deg, #ffffff, #f7f9fc);
+  
+    /* ❗ removed rounding */
+    border-radius: 0;
+  
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+    overflow: hidden;
+  }
+  
+  /* COVER PHOTO */
+  .cover-photo {
+    position: relative;
+    height: 220px;
+    background: linear-gradient(135deg, #d9d9d9, #f0f0f0);
+  }
+  
+  /* PROFILE IMAGE */
+  .profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -45px;
+    left: 20px;
+    border: 4px solid #fff;
+    background: #fff;
+    object-fit: cover;
+    z-index: 10;
+  }
+  
+  /* CALL BUTTON */
+  .call-now {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    background: #00c853;
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 5;
+    transition: 0.3s;
+  }
+  
+  .call-now:hover {
+    background: #00b248;
+  }
+  
+  /* NAME */
+  .location {
+    text-align: center;
+    margin-top: 38px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #111;
+    letter-spacing: 0.5px;
+  }
+  
+  /* JOB TITLE / BIO */
+  .bio {
+    text-align: center;
+    margin-top: 4px;
+    margin-bottom: 18px;
+    color: #666;
+    font-size: 15px;
+    padding: 0 10px;
+  }
+  
+  /* SAVE CONTACT */
+  .save-contact-btn {
+    display: block;
+    width: 60%;
+    max-width: 200px;
+    margin: 10px auto 20px;
+    padding: 12px 18px;
+    background: #00c853;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 999px;
+    font-weight: bold;
+    transition: 0.3s ease;
+  }
+  
+  .save-contact-btn:hover {
+    background: #00b248;
+    transform: translateY(-2px);
+  }
+  
+  /* LINKS */
+  .link-row {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .link-row a,
+  .share-btn {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    width: 100%;
+    font-size: 15px;
+  }
+  
+  .link-row img,
+  .share-btn img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* SHARE BUTTON */
+  .share-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* BANK DETAILS */
+  .bank-details {
+    display: none;
+    margin-top: 10px;
+    background: #f1f1f1;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: left;
+  }
+  
+  .bank-details p {
+    margin-bottom: 8px;
+  }
+  
+  /* PORTFOLIO */
+  .portfolio-section {
+    padding: 20px;
+  }
+  
+  .portfolio-section h3 {
+    text-align: center;
+    margin-bottom: 12px;
+    font-size: 20px;
+  }
+  
+  .portfolio-image img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .portfolio-image img:hover {
+    transform: scale(1.02);
+  }
+  
+  /* BRANDING */
+  .branding {
+    text-align: center;
+    padding: 25px 20px;
+  }
+  
+  .logo {
+    width: 85px;
+  }
+  
+  .brand-name {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .brand-desc {
+    margin-top: 20px;
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .brand-desc a {
+    color: #00c853;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* MODAL */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .cover-photo {
+      height: 180px;
+    }
+  
+    .profile-img {
+      width: 100px;
+      height: 100px;
+      bottom: -40px;
+      left: 15px;
+    }
+  
+    .location {
+      margin-top: 55px;
+      font-size: 24px;
+    }
+  
+    .bio {
+      font-size: 14px;
+    }
+  
+    .save-contact-btn {
+      width: 85%;
+    }
+  }
