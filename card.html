@@ -1,0 +1,121 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>NFC Card</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body{
+      font-family: Arial;
+      background:#f5f6fa;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    .card{
+      background:white;
+      padding:20px;
+      border-radius:15px;
+      text-align:center;
+      width:280px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    .card img{
+      width:100px;
+      height:100px;
+      border-radius:50%;
+      object-fit:cover;
+      margin-bottom:10px;
+    }
+
+    .name{
+      font-size:20px;
+      font-weight:bold;
+      margin-bottom:5px;
+    }
+
+    .phone{
+      color:#555;
+      margin-bottom:15px;
+    }
+
+    a{
+      display:inline-block;
+      padding:10px 15px;
+      background:#00c853;
+      color:white;
+      text-decoration:none;
+      border-radius:8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card" id="card">Loading...</div>
+
+<script type="module">
+
+import { initializeApp } from
+"https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+
+import {
+  getDatabase,
+  ref,
+  get
+} from
+"https://www.gstatic.com/firebasejs/12.15.0/firebase-database.js";
+
+
+// 🔥 CONFIG
+const firebaseConfig = {
+  apiKey: "AIzaSyA3hmr6ir5Sn84SIN9yiyOumq4gJbYvqcE",
+  authDomain: "liyu-f14b7.firebaseapp.com",
+  databaseURL: "https://liyu-f14b7-default-rtdb.firebaseio.com",
+  projectId: "liyu-f14b7",
+  storageBucket: "liyu-f14b7.firebasestorage.app",
+  messagingSenderId: "958509535849",
+  appId: "1:958509535849:web:ad5d42b0a1173c25e208f8"
+};
+
+// INIT
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+// GET ID FROM URL
+const urlParams = new URLSearchParams(window.location.search);
+const userId = urlParams.get("id");
+
+const card = document.getElementById("card");
+
+if (!userId) {
+  card.innerHTML = "No user selected";
+} else {
+
+  get(ref(db, "members/" + userId)).then(snapshot => {
+
+    if (snapshot.exists()) {
+      const data = snapshot.val();
+
+      card.innerHTML = `
+        <img src="${data.photo}" />
+        <div class="name">${data.name}</div>
+        <div class="phone">${data.phone}</div>
+        <a href="tel:${data.phone}">Call Now</a>
+      `;
+    } else {
+      card.innerHTML = "User not found";
+    }
+
+  });
+
+}
+
+</script>
+
+</body>
+</html> -->
