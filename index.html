@@ -60,7 +60,6 @@
 
     <div class="link-row">
       <a href="mailto:info@gebetasacco.com">
-        <!-- <a href="info@gebetasacco.com"> -->
         <img src="https://img.icons8.com/material-rounded/48/new-post.png">
         <span>Email</span>
       </a>
@@ -72,8 +71,6 @@
         <span>Website</span>
       </a>
     </div>
-
-    <!-- SOCIAL MEDIA -->
 
     <div class="link-row">
       <a href="https://www.instagram.com/reel/DZraP6jifHa/" target="_blank">
@@ -126,10 +123,7 @@
         data-phone="+251916131313"
         data-website="https://rodcards.com.et"
       >
-        <img
-          src="https://img.icons8.com/material-rounded/48/share.png"
-          alt="Share"
-        >
+        <img src="https://img.icons8.com/material-rounded/48/share.png">
         Share Contact
       </button>
     </div>
@@ -198,6 +192,74 @@
     </div>
 
   </div>
+
+  <!-- JS -->
+  <script src="/script.js"></script>
+
+  <!-- ✅ FIXED FIREBASE SCRIPT -->
+  <script type="module">
+    import { initializeApp } from
+    "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+
+    import {
+      getDatabase,
+      ref,
+      get
+    } from
+    "https://www.gstatic.com/firebasejs/12.15.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "YOUR_KEY",
+      authDomain: "YOUR_DOMAIN",
+      databaseURL: "YOUR_DB",
+      projectId: "YOUR_ID",
+      storageBucket: "YOUR_BUCKET",
+      messagingSenderId: "YOUR_SENDER",
+      appId: "YOUR_APP"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get("id");
+
+    const nameEl = document.querySelector(".location");
+    const bioEl = document.querySelector(".bio");
+    const imgEl = document.querySelector(".profile-img");
+    const phoneLinks = document.querySelectorAll("a[href^='tel:']");
+
+    if (!userId) {
+      nameEl.innerText = "No NFC ID found";
+    } else {
+
+      get(ref(db, "members/" + userId)).then(snapshot => {
+
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+
+          // ONLY THESE CHANGE PER NFC
+          nameEl.innerText = data.name;
+          imgEl.src = data.photo;
+
+          // ❗ IMPORTANT: keep bio STATIC (DO NOT CHANGE)
+          bioEl.innerText = "Chief Executive Officer";
+
+          // update ONLY phone number links (not bio)
+          phoneLinks.forEach(a => {
+            a.href = "tel:" + data.phone;
+            const span = a.querySelector("span");
+            if (span) span.innerText = data.phone;
+          });
+
+        } else {
+          nameEl.innerText = "User not found";
+        }
+
+      });
+
+    }
+  </script>
 
 </body>
 </html>
